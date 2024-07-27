@@ -1,24 +1,14 @@
-import "./App.css";
-import CustomButton from "./components/atoms/button";
+import React, { useState } from 'react';
+import Signup from "./pages/users/sign-up";
+import Signin from "./pages/users/sign-in";
 
 function App() {
+  const [isSigningUp, setIsSigningUp] = useState(false);
   return (
     <>
-      <CustomButton
-        text={"Button"}
-        btnColor={"bg-white"}
-        textColor={"text-black"}
-      />
-      <CustomButton
-        text={"Close"}
-        btnColor={"bg-grey"}
-        textColor={"text-black"}
-      />
-      <CustomButton
-        text={"Tejaswi"}
-        btnColor={"bg-yellow-500"}
-        textColor={"text-black font-bold"}
-      />
+      <div className="flex flex-col justify-center h-screen">
+        {isSigningUp ? <Signup setIsSigningUp={setIsSigningUp} isSigningUp={isSigningUp} /> : <Signin setIsSigningUp={setIsSigningUp} isSigningUp={isSigningUp} />}
+      </div>
     </>
   );
 }
